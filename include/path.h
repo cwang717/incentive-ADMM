@@ -3,6 +3,7 @@
 #include <list>
 #include <vector>
 
+#include "common.h"
 #include "link.h"
 
 namespace tntp {

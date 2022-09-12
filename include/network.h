@@ -3,6 +3,7 @@
 #include <memory>
 #include <unordered_map>
 
+#include "common.h"
 #include "link.h"
 #include "node.h"
 #include "od.h"
@@ -14,15 +15,17 @@ class Network {
     public:
         Network(){}
 
-        void addLink(const std::string& link_name,
-                     const std::string& tail_name,
+        Network(const tntp::Network& network);
+
+        void addLink(const std::string& tail_name,
                      const std::string& head_name,
                      const double capacity, 
                      const double freeflow_time,
                      const double bpr_a,
                      const double bpr_b);
-
-        void addLink(const std::string& tail_name,
+        
+        void addLink(const std::string& link_name,
+                     const std::string& tail_name,
                      const std::string& head_name,
                      const double capacity, 
                      const double freeflow_time,
@@ -43,6 +46,8 @@ class Network {
         void addPath(const std::string& nodes_str);
 
         void buildNetwork();
+
+        void generateVehicles();
 
         const std::unordered_map<int, std::shared_ptr<tntp::Node>>& getNodes() {
             return _nodes;

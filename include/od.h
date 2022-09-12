@@ -20,14 +20,8 @@ class OD {
             _destination = destination;
         }
 
-        OD(tntp::Network * const network,
-           const int id,
-           const int origin_id, 
-           const int destination_id,
-           const double demand) : _demand(demand) {
-            _network = network;
-            _origin = network->getNode(origin_id).get();
-            _destination = network->getNode(destination_id).get();
+        void addPath(tntp::Path * const path) {
+            _paths.push_back(path);
         }
 
     private:

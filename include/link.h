@@ -2,6 +2,7 @@
 
 #include <memory>
 
+#include "common.h"
 #include "node.h"
 #include "network.h"
 

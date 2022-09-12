@@ -9,6 +9,7 @@ namespace assignment {
 class Vehicle {
 
     private:
+        std::unordered_map<int, double> _p;
         std::unordered_map<int, double> _local_incentives;
         tntp::OD* _od;
 
