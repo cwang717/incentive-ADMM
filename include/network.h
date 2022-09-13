@@ -49,6 +49,10 @@ class Network {
 
         void generateVehicles();
 
+        const std::unordered_map<int, std::shared_ptr<tntp::OD>>& getOds() {
+            return _ods;
+        }
+
         const std::unordered_map<int, std::shared_ptr<tntp::Node>>& getNodes() {
             return _nodes;
         }
@@ -58,6 +62,8 @@ class Network {
         }
 
         std::shared_ptr<const tntp::Node> getNode(int node_id);
+
+        void printNetwork();
 
     private:
         void addNode(const std::string& name);

@@ -17,6 +17,8 @@ class Path {
         double calculateCost();
         
         double evaluateCost(double flow);
+
+        int getId() {return _id;}
     
     private:
         tntp::Network* _network;

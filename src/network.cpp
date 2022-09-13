@@ -1,3 +1,4 @@
+#include <glog/logging.h>
 #include <iostream>
 #include <vector>
 
@@ -81,7 +82,28 @@ void Network::addPath(const std::string& nodes_str) {
 }
 
 void Network::buildNetwork() {
+    if (_ods.size() != _ods_by_names.size() ||
+        _paths.size() != _paths_by_names.size() ||
+        _links.size() != _links_by_names.size() ||
+        _nodes.size() != _nodes_by_names.size()) {
+        LOG(ERROR) << "Inconsistent ids and names";
+    }
+}
 
+void Network::printNetwork() {
+    std::cout << "ODs: " << std::endl; 
+    for (const auto& od_p : _ods_by_names) {
+        std::cout << od_p.first << "; ";
+    }
+    std::cout << std::endl << "Paths: " << std::endl;
+    for (const auto& path_p : _paths_by_names) {
+        std::cout << path_p.first << "; ";
+    }
+    std::cout << std::endl << "Links: " << std::endl;
+    for (const auto& link_p : _links_by_names) {
+        std::cout << link_p.first << "; ";
+    }
+    std::cout << std::endl;
 }
 
 } // namespace tntp
